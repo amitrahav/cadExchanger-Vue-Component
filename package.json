@@ -1,0 +1,56 @@
+{
+    "name": "cadExchanger-component",
+    "version": "1.0.0",
+    "main": "dist/cadExchangerComponent.umd.js",
+    "module": "dist/cadExchangerComponent.esm.js",
+    "unpkg": "dist/cadExchangerComponent.min.js",
+    "browser": {
+        "./sfc": "src/cadExchangerComponent.vue"
+    },
+    "scripts": {
+        "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+        "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/cadExchangerComponent.umd.js",
+        "build:es": "rollup --config build/rollup.config.js --format es --file dist/cadExchangerComponent.esm.js",
+        "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/cadExchangerComponent.min.js",
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@vue/test-utils": "1.0.0-beta.32",
+        "babel-jest": "25.1.0",
+        "jest": "25.1.0",
+        "rollup": "^1.17.0",
+        "rollup-plugin-buble": "^0.19.8",
+        "rollup-plugin-commonjs": "^10.0.1",
+        "rollup-plugin-vue": "^5.0.1",
+        "vue": "^2.6.10",
+        "vue-jest": "3.0.5",
+        "vue-template-compiler": "^2.6.10"
+    },
+    "jest": {
+        "moduleFileExtensions": [
+            "js",
+            "vue"
+        ],
+        "moduleNameMapper": {
+            "^@/(.*)$": "/src/$1"
+        },
+        "globals": {
+            "cadExchanger_clientId": "",
+            "cadExchanger_client_secret": "",
+            "cadExchanger_parentFolder": ""
+        },
+        "verbose": true,
+        "collectCoverage": true,
+        "collectCoverageFrom": [
+            "**/*.{js,vue}",
+            "!**/node_modules/**"
+        ],
+        "coverageReporters": [
+            "html",
+            "text-summary"
+        ],
+        "transform": {
+            "^.+\\.vue$": "vue-jest"
+        }
+    }
+}

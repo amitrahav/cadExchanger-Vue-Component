@@ -9,7 +9,7 @@
   import axios from 'axios'
   
   export default {
-    name: 'cadExchangerComponent',
+    name: 'cadExchanger',
     props: {
       file_url: String,
       file_name: String,
@@ -159,7 +159,6 @@
         const self = this;
         let intr = setInterval( async function() {
           await self.getRevisionReady()
-          console.log("interval")
           if (self.status_ready) clearInterval(intr);
         }, 5000)
 
